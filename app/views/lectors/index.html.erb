@@ -1,0 +1,32 @@
+<h1>Lista de Lectores</h1>
+
+<div class="panel panel-default">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Oficina</th>
+      <th>Libro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lectors.each do |lector| %>
+      <tr>
+        <td><%= lector.nombre %></td>
+        <td><%= lector.apellido %></td>
+        <td><%= lector.oficina %></td>
+        <td><%= lector.libro.nombre %></td>
+        <td><%= link_to 'ver', lector %></td>
+        <td><%= link_to 'Editar', edit_lector_path(lector) %></td>
+        <td><%= link_to 'Destruir', lector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Nuevo Lectores', new_lector_path %>

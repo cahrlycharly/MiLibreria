@@ -1,0 +1,32 @@
+<h1>Lista de libros</h1>
+
+<div class="panel panel-default">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Idioma</th>
+      <th>Genero</th>
+      <th>Autor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @libros.each do |libro| %>
+      <tr>
+        <td><%= libro.nombre %></td>
+        <td><%= libro.idioma %></td>
+        <td><%= libro.genero.nombre %></td>
+        <td><%= libro.autor.nombre %></td>
+        <td><%= link_to 'Ver', libro %></td>
+        <td><%= link_to 'Editar', edit_libro_path(libro) %></td>
+        <td><%= link_to 'Destruir', libro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Nuevos Libros', new_libro_path %>

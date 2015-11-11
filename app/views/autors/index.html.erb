@@ -1,0 +1,32 @@
+<h1>Liastado de Aurotes</h1>
+<div class="panel panel-default">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Nacionalidad</th>
+      <th>Genero</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @autors.each do |autor| %>
+      <tr>
+        <td><%= autor.nombre %></td>
+        <td><%= autor.apellido %></td>
+        <td><%= autor.nacionalidad %></td>
+        <td><%= autor.genero.nombre %></td>
+        <td><%= link_to 'Ver', autor %></td>
+        <td><%= link_to 'Editar', edit_autor_path(autor) %></td>
+        <td><%= link_to 'Destruir', autor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'Nuevo Autor', new_autor_path %>

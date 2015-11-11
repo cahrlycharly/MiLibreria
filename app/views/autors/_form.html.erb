@@ -1,0 +1,33 @@
+<%= form_for(@autor) do |f| %>
+  <% if @autor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@autor.errors.count, "error") %> prohibited this autor from being saved:</h2>
+
+      <ul>
+      <% @autor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :nacionalidad %><br>
+    <%= f.text_field :nacionalidad %>
+  </div>
+  <div class="field">
+    <%= f.label :genero_id %><br>
+    <%= f.select( "genero_id", Genero.all.collect{|l| [l.nombre,l.id] }, {include_blank: 'Seleccione Genero'} ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

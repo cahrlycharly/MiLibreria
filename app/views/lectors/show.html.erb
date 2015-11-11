@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @lector.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @lector.apellido %>
+</p>
+
+<p>
+  <strong>Oficina:</strong>
+  <%= @lector.oficina %>
+</p>
+
+<p>
+  <strong>Libro:</strong>
+  <%= @lector.libro.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_lector_path(@lector) %> |
+<%= link_to 'Back', lectors_path %>

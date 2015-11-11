@@ -1,0 +1,33 @@
+<%= form_for(@lector) do |f| %>
+  <% if @lector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lector.errors.count, "error") %> prohibited this lector from being saved:</h2>
+
+      <ul>
+      <% @lector.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :oficina %><br>
+    <%= f.text_field :oficina %>
+  </div>
+  <div class="field">
+    <%= f.label :libro_id %><br>
+    <%= f.select( "libro_id", Libro.all.collect{|l| [ l.nombre, l.id ] }, {include_blank: 'Seleccione Libro'} ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

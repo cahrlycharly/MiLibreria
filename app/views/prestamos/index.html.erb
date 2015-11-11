@@ -1,0 +1,30 @@
+<h1>Lista de Prestamos</h1>
+
+<div class="panel panel-default">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Fecha de prestamo</th>
+      <th>Libro</th>
+      <th>Lector</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prestamos.each do |prestamo| %>
+      <tr>
+        <td><%= prestamo.fecha_de_prestamo %></td>
+        <td><%= prestamo.libro.nombre %></td>
+        <td><%= prestamo.lector.nombre %></td>
+        <td><%= link_to 'Ver', prestamo %></td>
+        <td><%= link_to 'Editar', edit_prestamo_path(prestamo) %></td>
+        <td><%= link_to 'Destruir', prestamo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Nuevo Prestamo', new_prestamo_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  idioma: MyString
+  genero_id: 
+  autor_id: 
+
+two:
+  nombre: MyString
+  idioma: MyString
+  genero_id: 
+  autor_id: 
