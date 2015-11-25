@@ -1,6 +1,7 @@
 class LectorsController < ApplicationController
   before_action :set_lector, only: [:show, :edit, :update, :destroy]
 
+
   # GET /lectors
   # GET /lectors.json
   def index
